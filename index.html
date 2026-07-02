@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Blendz — Barber Shop in Selma, NC</title>
+<meta name="description" content="House of Blendz is a barber shop in Selma, NC. Fades, tapers, beard work, straight razor line-ups. 108 W Anderson St, Selma NC 27576.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --charcoal:#161616;
+    --chrome-1:#8a8c90;
+    --chrome-2:#c9cace;
+    --chrome-3:#e8e9eb;
+    --white:#f5f5f3;
+    --line:#2c2c2c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Space Grotesk',sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--chrome-2);color:var(--black);}
+
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- top ticker ---------- */
+  .ticker-wrap{
+    background:var(--white);
+    color:var(--black);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid var(--line);
+  }
+  .ticker{
+    display:inline-block;
+    padding:8px 0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    animation:scroll 26s linear infinite;
+  }
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 5vw;
+    background:rgba(10,10,10,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{
+    font-family:'Anton',sans-serif;
+    font-size:20px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .logo span{color:var(--chrome-2);}
+  nav a{
+    color:var(--chrome-2);
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    margin-left:32px;
+    transition:color .2s;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--white);}
+  nav{display:flex;}
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 5vw;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(200,200,203,.08), transparent 55%),
+      var(--black);
+  }
+  .hero-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--chrome-1);
+    margin-bottom:24px;
+  }
+  h1.hero-title{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    line-height:.86;
+    font-size:clamp(52px,11vw,168px);
+    letter-spacing:-.01em;
+    background:linear-gradient(180deg,var(--chrome-3) 0%,var(--chrome-1) 55%,#6c6d70 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero-sub{
+    margin-top:28px;
+    max-width:520px;
+    font-size:16px;
+    line-height:1.6;
+    color:#b8b8b6;
+  }
+  .hero-meta{
+    margin-top:44px;
+    display:flex;
+    gap:48px;
+    flex-wrap:wrap;
+  }
+  .hero-meta div{border-left:1px solid var(--line);padding-left:16px;}
+  .hero-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--chrome-1);text-transform:uppercase;}
+  .hero-meta .v{font-size:15px;margin-top:6px;}
+
+  /* ---------- edition tag / signature element ---------- */
+  .tag{
+    position:absolute;
+    top:120px;right:5vw;
+    border:1px solid var(--line);
+    padding:14px 18px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--chrome-1);
+    text-align:right;
+    display:none;
+  }
+  @media(min-width:900px){.tag{display:block;}}
+  .tag .barcode{
+    margin-top:10px;
+    height:22px;
+    width:140px;
+    background:repeating-linear-gradient(90deg,var(--chrome-1) 0 2px,transparent 2px 5px,var(--chrome-2) 5px 6px,transparent 6px 9px);
+    opacity:.7;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:110px 5vw;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--chrome-1);
+    margin-bottom:18px;
+  }
+  h2.section-title{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(32px,5.5vw,64px);
+    line-height:.95;
+    letter-spacing:-.01em;
+    color:var(--chrome-3);
+  }
+
+  /* ---------- about ---------- */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;}
+  .about p{color:#b8b8b6;font-size:16px;line-height:1.75;margin-top:22px;max-width:44ch;}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);align-content:start;}
+  .stat{background:var(--charcoal);padding:26px;}
+  .stat .n{font-family:'Anton',sans-serif;font-size:40px;color:var(--chrome-2);}
+  .stat .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--chrome-1);margin-top:8px;}
+
+  /* ---------- services ---------- */
+  .service-list{margin-top:50px;border-top:1px solid var(--line);}
+  .service{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    align-items:center;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+    transition:background .2s;
+  }
+  .service:hover{background:rgba(255,255,255,.02);}
+  .service .code{font-family:'JetBrains Mono',monospace;color:var(--chrome-1);font-size:13px;}
+  .service .name{font-family:'Anton',sans-serif;font-size:clamp(20px,3vw,30px);text-transform:uppercase;color:var(--chrome-3);}
+  .service .desc{font-size:13px;color:#8f8f8d;margin-top:4px;font-weight:400;letter-spacing:.02em;}
+  .service .price{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--chrome-2);}
+
+  /* ---------- gallery ---------- */
+  .gallery-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .gallery-grid figure{
+    position:relative;
+    aspect-ratio:3/4;
+    background:var(--charcoal);
+    overflow:hidden;
+    margin:0;
+  }
+  .gallery-grid img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.08);
+    display:block;
+    transition:transform .5s ease, filter .5s ease;
+  }
+  .gallery-grid figure:hover img{transform:scale(1.06);filter:grayscale(.2) contrast(1.05);}
+  .gallery-grid .fallback{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;
+    color:var(--chrome-1);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:12px;
+  }
+  .gallery-grid .fallback .n{font-family:'Anton',sans-serif;font-size:34px;color:var(--line);}
+
+  /* ---------- location ---------- */
+  .location{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border-top:1px solid var(--line);margin-top:50px;}
+  .loc-info{padding:40px 40px 40px 0;border-right:1px solid var(--line);}
+  .loc-info .addr{font-family:'Anton',sans-serif;font-size:26px;text-transform:uppercase;color:var(--chrome-3);line-height:1.2;}
+  .loc-info .hours{margin-top:30px;}
+  .loc-info .hours .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;}
+  .loc-info .hours .d{color:#8f8f8d;text-transform:uppercase;letter-spacing:.1em;font-size:11px;}
+  .loc-info .hours .t{font-family:'JetBrains Mono',monospace;color:var(--chrome-2);}
+  .loc-info a.dir{
+    display:inline-block;margin-top:28px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--black);background:var(--chrome-3);padding:14px 22px;text-decoration:none;
+    transition:background .2s;
+  }
+  .loc-info a.dir:hover{background:var(--white);}
+  .map-frame{position:relative;min-height:420px;}
+  .map-frame iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.35) contrast(1.1);display:block;}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:40px 5vw;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  footer .fl{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6c6c6a;letter-spacing:.05em;}
+  footer .fr a{
+    color:var(--chrome-2);
+    text-decoration:none;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    transition:color .2s, border-color .2s;
+  }
+  footer .fr a:hover{color:var(--white);border-color:var(--chrome-2);}
+
+  @media(max-width:860px){
+    .about,.location{grid-template-columns:1fr;}
+    .loc-info{border-right:none;border-bottom:1px solid var(--line);padding:0 0 30px 0;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    nav{position:fixed;top:0;right:0;height:100vh;width:70vw;max-width:300px;background:var(--black);
+        flex-direction:column;justify-content:center;align-items:flex-start;padding:0 32px;
+        transform:translateX(100%);transition:transform .3s ease;border-left:1px solid var(--line);}
+    nav.open{transform:translateX(0);}
+    nav a{margin:14px 0;font-size:14px;}
+    .nav-toggle{display:block;background:none;border:1px solid var(--line);color:var(--white);
+        width:38px;height:38px;font-family:'JetBrains Mono',monospace;font-size:14px;cursor:pointer;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{animation:none;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    108 W ANDERSON ST · SELMA NC 27576 &nbsp;—&nbsp; WALK-INS WELCOME &nbsp;—&nbsp; FADES · TAPERS · LINE-UPS &nbsp;—&nbsp; 108 W ANDERSON ST · SELMA NC 27576 &nbsp;—&nbsp; WALK-INS WELCOME &nbsp;—&nbsp; FADES · TAPERS · LINE-UPS &nbsp;—&nbsp;
+  </div>
+</div>
+
+<header>
+  <div class="logo">HOUSE OF <span>BLENDZ</span></div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+  <nav id="siteNav">
+    <a href="#about">Shop</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Work</a>
+    <a href="#location">Location</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="tag">
+    EST. SELMA, NC
+    <div class="barcode"></div>
+    NO. 108-W-ANDERSON
+  </div>
+  <div class="hero-tag mono">Barber Shop — Selma, North Carolina</div>
+  <h1 class="hero-title">House of<br>Blendz</h1>
+  <p class="hero-sub">Precision fades and clean line-ups out of Selma, NC. No shortcuts, no rush jobs — just barbers who take the chair seriously.</p>
+  <div class="hero-meta">
+    <div><div class="k">Address</div><div class="v">108 W Anderson St<br>Selma, NC 27576</div></div>
+    <div><div class="k">Status</div><div class="v">Open Today</div></div>
+    <div><div class="k">Book</div><div class="v">Walk-in or call</div></div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <div class="eyebrow">01 — The Shop</div>
+    <h2 class="section-title">Selma's barber shop for the fresh cut</h2>
+    <p>House of Blendz sits on West Anderson Street in the middle of Selma. It's a barber shop built for people who take their cut seriously — skin fades, tapers, beard sculpting, straight razor finishes. Every chair, same standard.</p>
+    <p>If you're searching for a barber in Selma who blends clean and doesn't cut corners, this is the shop.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat"><div class="n">108</div><div class="l">W Anderson St</div></div>
+    <div class="stat"><div class="n">27576</div><div class="l">Selma, NC</div></div>
+    <div class="stat"><div class="n">A1</div><div class="l">Skin Fades</div></div>
+    <div class="stat"><div class="n">24/7</div><div class="l">Sharp Standard</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="eyebrow">02 — On The Menu</div>
+  <h2 class="section-title">Services</h2>
+  <div class="service-list">
+    <div class="service">
+      <div class="code mono">01</div>
+      <div><div class="name">Skin Fade</div><div class="desc">Bald fade, blended clean to the skin</div></div>
+      <div class="price mono">$—</div>
+    </div>
+    <div class="service">
+      <div class="code mono">02</div>
+      <div><div class="name">Taper</div><div class="desc">Classic taper, natural blend</div></div>
+      <div class="price mono">$—</div>
+    </div>
+    <div class="service">
+      <div class="code mono">03</div>
+      <div><div class="name">Line-Up</div><div class="desc">Razor edge-up, front and sides</div></div>
+      <div class="price mono">$—</div>
+    </div>
+    <div class="service">
+      <div class="code mono">04</div>
+      <div><div class="name">Beard Sculpt</div><div class="desc">Shape, line, and razor finish</div></div>
+      <div class="price mono">$—</div>
+    </div>
+    <div class="service">
+      <div class="code mono">05</div>
+      <div><div class="name">Cut + Beard Combo</div><div class="desc">Full service, top to chin</div></div>
+      <div class="price mono">$—</div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="eyebrow">03 — The Work</div>
+  <h2 class="section-title">Fresh out the chair</h2>
+  <div class="gallery-grid">
+    <figure>
+      <div class="fallback"><span class="n">01</span>photos/1.jpg</div>
+      <img src="photos/1.jpg" alt="Fresh fade at House of Blendz barber shop" loading="lazy" onerror="this.style.display='none'">
+    </figure>
+    <figure>
+      <div class="fallback"><span class="n">02</span>photos/2.jpg</div>
+      <img src="photos/2.jpg" alt="Line-up detail at House of Blendz" loading="lazy" onerror="this.style.display='none'">
+    </figure>
+    <figure>
+      <div class="fallback"><span class="n">03</span>photos/3.jpg</div>
+      <img src="photos/3.jpg" alt="Beard sculpt at House of Blendz" loading="lazy" onerror="this.style.display='none'">
+    </figure>
+    <figure>
+      <div class="fallback"><span class="n">04</span>photos/4.jpg</div>
+      <img src="photos/4.jpg" alt="Inside House of Blendz barber shop, Selma NC" loading="lazy" onerror="this.style.display='none'">
+    </figure>
+  </div>
+</section>
+
+<section id="location">
+  <div class="eyebrow">04 — Find The Shop</div>
+  <h2 class="section-title">Barber shop in Selma, NC</h2>
+  <div class="location">
+    <div class="loc-info">
+      <div class="addr">108 W Anderson St<br>Selma, NC 27576</div>
+      <div class="hours">
+        <div class="row"><span class="d">Mon</span><span class="t">Closed</span></div>
+        <div class="row"><span class="d">Tue – Fri</span><span class="t">9:00 – 19:00</span></div>
+        <div class="row"><span class="d">Saturday</span><span class="t">8:00 – 17:00</span></div>
+        <div class="row"><span class="d">Sunday</span><span class="t">Closed</span></div>
+      </div>
+      <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=108+W+Anderson+St,+Selma,+NC+27576" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=108+W+Anderson+St,+Selma,+NC+27576&t=k&z=18&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Satellite map of House of Blendz, 108 W Anderson St, Selma NC 27576">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl mono">© <span id="year"></span> House of Blendz — Selma, NC</div>
+  <div class="fr">Built by <a href="https://www.onstra.world" target="_blank" rel="noopener">Onstra</a></div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('open');
+    const isOpen = siteNav.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.textContent = isOpen ? 'CLOSE' : 'MENU';
+  });
+  document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => {
+    siteNav.classList.remove('open');
+    navToggle.textContent = 'MENU';
+  }));
+</script>
+
+</body>
+</html>
